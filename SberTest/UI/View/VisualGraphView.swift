@@ -49,6 +49,8 @@ class VisualGraphView: UIView {
         mainView.addSubview(countLabel)
         countLabel.text = String(amount)
         
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(moveToCenter))
+        addGestureRecognizer(gesture)
     }
     
     private func initConstraints() {
@@ -59,6 +61,29 @@ class VisualGraphView: UIView {
         
         countLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+    
+    @objc func moveToCenter(_ gesture: UILongPressGestureRecognizer) {
+        let point = self.convert(CGPoint(x: self.frame.midX, y: self.frame.midY), to: self.window)
+        let oopoint = CGPoint(x: self.window!.center.x - point.x, y: self.window!.center.y - point.y)
+        let originalTransform = self.transform
+        let translatedTransform = originalTransform.translatedBy(x: oopoint.x, y: oopoint.y + self.bounds.height/2)
+        let translatedAndScaledTransform = translatedTransform.scaledBy(x: 1.25, y: 1.25)
+        self.bringViewInCollectViewCellToFront()
+        switch gesture.state {
+        case .began:
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                guard let self = self else { return }
+
+                self.transform = translatedAndScaledTransform
+            }
+        case .ended:
+            UIView.animate(withDuration: 0.5) {
+                self.transform = .identity
+            }
+        default:
+            break
         }
     }
     

@@ -24,7 +24,9 @@ enum Parser {
         
         /// формируем ячейку "Итого"
         dataModel.conditionTypes.forEach { conditionType in
-            dataModel.amountTypes.filter({ $0.conditionId == conditionType.id }).forEach({ amountType in
+            dataModel.amountTypes
+                .filter({ $0.conditionId == conditionType.id })
+                .forEach({ amountType in
                 let color = Formatter.hexStringToUIColor(hex: conditionType.color)
                 if allVisualGraphModel.conditionWithAmountDict[color] != nil {
                     allVisualGraphModel.conditionWithAmountDict[color]! += amountType.value
@@ -45,7 +47,9 @@ enum Parser {
             /// модель для работы с ячейкой для каждого региона
             var visualGraphModel = VisualGraphModel(type: .region(region))
             
-            dataModel.amountTypes.filter { $0.regionId == region.id }.forEach { amountType in
+            dataModel.amountTypes
+                .filter { $0.regionId == region.id }
+                .forEach { amountType in
                 dataModel.conditionTypes.forEach { conditionType in
                     if amountType.conditionId == conditionType.id {
                         let color = Formatter.hexStringToUIColor(hex: conditionType.color)

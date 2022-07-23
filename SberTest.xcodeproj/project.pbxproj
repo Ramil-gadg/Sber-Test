@@ -29,6 +29,7 @@
 		03B517FA2887210000B4C62A /* ConditionTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B517F1288720FF00B4C62A /* ConditionTypeModel.swift */; };
 		03B517FC2887210000B4C62A /* VisualGraphCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B517F4288720FF00B4C62A /* VisualGraphCellModel.swift */; };
 		03B517FE2887210000B4C62A /* VisualGraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B517F6288720FF00B4C62A /* VisualGraphCollectionViewCell.swift */; };
+		03C5E376288C071E00F4BA76 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5E375288C071E00F4BA76 /* UIView + Extension.swift */; };
 		1A467BA2603AD49128C87F2E /* Pods_SberTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7F25B988485A5A8C12EC8E /* Pods_SberTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		03B517F1288720FF00B4C62A /* ConditionTypeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionTypeModel.swift; sourceTree = "<group>"; };
 		03B517F4288720FF00B4C62A /* VisualGraphCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualGraphCellModel.swift; sourceTree = "<group>"; };
 		03B517F6288720FF00B4C62A /* VisualGraphCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualGraphCollectionViewCell.swift; sourceTree = "<group>"; };
+		03C5E375288C071E00F4BA76 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		2895642B0F7911B73198548F /* Pods-SberTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SberTest.release.xcconfig"; path = "Target Support Files/Pods-SberTest/Pods-SberTest.release.xcconfig"; sourceTree = "<group>"; };
 		423E6880702E6B45A430E1B4 /* Pods-SberTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SberTest.debug.xcconfig"; path = "Target Support Files/Pods-SberTest/Pods-SberTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DE7F25B988485A5A8C12EC8E /* Pods_SberTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SberTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				0392F2B628877AD600C5F5EA /* String + Extension.swift */,
+				03C5E375288C071E00F4BA76 /* UIView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				0392F2CF2889128700C5F5EA /* VisualGraphModelType.swift in Sources */,
 				0392F2CA2888BC7500C5F5EA /* Parser.swift in Sources */,
 				0392F2C62888B23500C5F5EA /* MyChartView.swift in Sources */,
+				03C5E376288C071E00F4BA76 /* UIView + Extension.swift in Sources */,
 				0392F2AC2887276700C5F5EA /* IllModel.swift in Sources */,
 				0392F2B22887414600C5F5EA /* VisualGraphView.swift in Sources */,
 				03B517FA2887210000B4C62A /* ConditionTypeModel.swift in Sources */,
