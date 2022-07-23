@@ -70,9 +70,9 @@ class VisualGraphView: UIView {
         let originalTransform = self.transform
         let translatedTransform = originalTransform.translatedBy(x: oopoint.x, y: oopoint.y)
         let translatedAndScaledTransform = translatedTransform.scaledBy(x: 1.25, y: 1.25)
-        self.bringViewInCollectViewCellToFront()
         switch gesture.state {
         case .began:
+            self.bringViewInCollectViewCellToFront()
             UIView.animate(withDuration: 0.5) { [weak self] in
                 guard let self = self else { return }
 

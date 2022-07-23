@@ -17,7 +17,6 @@ extension UIView {
             return
         }
         superView.bringSubviewToFront(self)
-        
         if (superView as? UICollectionView) == nil {
             superView.bringViewInCollectViewCellToFront()
         }
