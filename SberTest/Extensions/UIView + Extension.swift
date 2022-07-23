@@ -10,15 +10,15 @@ import UIKit
 
 extension UIView {
     
+    /// рекурсивно выводим view на первый план, пока не дойдем до CollectionView
     func bringViewInCollectViewCellToFront() {
+        
         guard let superView = self.superview else {
-                  return
-              }
-        superView.bringSubviewToFront(self)
-        if let collView = superView as? UICollectionView {
-            collView.bringSubviewToFront(self)
             return
-        } else {
+        }
+        superView.bringSubviewToFront(self)
+        
+        if (superView as? UICollectionView) == nil {
             superView.bringViewInCollectViewCellToFront()
         }
     }

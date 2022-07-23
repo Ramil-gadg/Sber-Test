@@ -65,10 +65,10 @@ class VisualGraphView: UIView {
     }
     
     @objc func moveToCenter(_ gesture: UILongPressGestureRecognizer) {
-        let point = self.convert(CGPoint(x: self.frame.midX, y: self.frame.midY), to: self.window)
+        let point = self.convert(CGPoint(x: self.bounds.midX, y: self.bounds.midY), to: self.window)
         let oopoint = CGPoint(x: self.window!.center.x - point.x, y: self.window!.center.y - point.y)
         let originalTransform = self.transform
-        let translatedTransform = originalTransform.translatedBy(x: oopoint.x, y: oopoint.y + self.bounds.height/2)
+        let translatedTransform = originalTransform.translatedBy(x: oopoint.x, y: oopoint.y)
         let translatedAndScaledTransform = translatedTransform.scaledBy(x: 1.25, y: 1.25)
         self.bringViewInCollectViewCellToFront()
         switch gesture.state {
