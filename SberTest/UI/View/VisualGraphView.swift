@@ -44,12 +44,14 @@ class VisualGraphView: UIView {
     }
     
     private func initUI() {
+        clipsToBounds = false
         self.addSubview(mainView)
         mainView.backgroundColor = color
         mainView.addSubview(countLabel)
         countLabel.text = String(amount)
         
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(moveToCenter))
+        gesture.cancelsTouchesInView = false
         addGestureRecognizer(gesture)
     }
     
@@ -64,27 +66,36 @@ class VisualGraphView: UIView {
         }
     }
     
-    @objc func moveToCenter(_ gesture: UILongPressGestureRecognizer) {
-        let point = self.convert(CGPoint(x: self.bounds.midX, y: self.bounds.midY), to: self.window)
-        let oopoint = CGPoint(x: self.window!.center.x - point.x, y: self.window!.center.y - point.y)
-        let originalTransform = self.transform
-        let translatedTransform = originalTransform.translatedBy(x: oopoint.x, y: oopoint.y)
-        let translatedAndScaledTransform = translatedTransform.scaledBy(x: 1.25, y: 1.25)
-        switch gesture.state {
-        case .began:
-            self.bringViewInCollectViewCellToFront()
-            UIView.animate(withDuration: 0.5) { [weak self] in
-                guard let self = self else { return }
+}
 
-                self.transform = translatedAndScaledTransform
-            }
-        case .ended:
-            UIView.animate(withDuration: 0.5) {
-                self.transform = .identity
-            }
-        default:
-            break
-        }
+//MARK: - Gesture Processing
+extension VisualGraphView {
+    
+    @objc func moveToCenter(_ gesture: UILongPressGestureRecognizer) {
+        self.moveToScreenCenter(with: gesture)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        layer.shadowColor = UIColor.darkGray.cgColor
+        layer.shadowOpacity = 0.8
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 7
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        stopHighlighting()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        stopHighlighting()
+    }
+    
+    private func stopHighlighting() {
+        layer.shadowColor = UIColor.clear.cgColor
+        layer.shadowRadius = 0.0
     }
     
 }
