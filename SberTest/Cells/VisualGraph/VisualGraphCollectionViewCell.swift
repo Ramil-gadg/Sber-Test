@@ -77,7 +77,12 @@ class VisualGraphCollectionViewCell: UICollectionViewCell {
         self.model = model
         self.comonAmountLbl.text = model.commonAmount
         self.regionNameLbl.text = model.name
-        configureStack()
+        
+        /// если данные не пустые, то создаем вьюшки
+        if model.isEmptyCollectionView == false {
+            configureStack()
+        }
+        
     }
     
     /// собираем стек столбца из цветных вьюшек

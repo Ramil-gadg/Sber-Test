@@ -18,6 +18,10 @@ class VisualGraphCellModel {
         model.maxAmount
     }
     
+    var isEmptyCollectionView: Bool {
+        model.maxAmount < 1
+    }
+    
     /// общее количество значений
     var commonAmount: String? {
         String(model.conditionWithAmountDict.values.reduce(0, +))
